@@ -4,6 +4,19 @@
 
 const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
+// Dit zijn cijfers van verschillene studenten
+
+// Gemiddele cijfer uitrekenen:
+
+// let sum = 0;
+//
+// for (let i = 0; i < grades.length; i++) {
+//    sum += grades[i];
+// }
+//
+// console.log(sum / grades.length);
+
+
 /* Opdracht  1: Cum Laude */
 
 /* 1a: Script schrijven  */
@@ -13,6 +26,31 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorg ik ervoor dat dit ook werkt wanneer de array 100 entries bevat?
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
+
+//ik wil de lijst doorlopen
+
+// elke keer als een cijfer 8 of hoger is wil ik true terug krijgen
+
+// elke keer als een cijfer lager is dan 8 wil ik false terug krijgen
+
+for (let i = 0; i < grades.length; i++) {
+    if(grades[i] >= 8) {
+        grades.splice(i, 1, 'Cum Laude');
+    } else {
+        grades.splice(i,1, 'failed');
+    }
+    // console.log(grades[i]);
+}
+
+let sum = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i].includes('Cum Laude')) {
+        sum = sum + 1;
+    }
+}
+
+// console.log('Er zijn ' + sum + ' studenten Cum Laude afgestudeerd. Er moeten dus ' + sum + ' diplomas besteld worden.');
 
 // ---- Verwachte uitkomst: 6
 
@@ -26,9 +64,29 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude(grades) geeft 6
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
-
-
-
+//
+// function cumLaude() {
+//     for (let i = 0; i < grades.length; i++) {
+//         if(grades[i] >= 8) {
+//             grades.splice(i, 1, 'Cum Laude');
+//         } else {
+//             grades.splice(i,1, 'failed');
+//         }
+//         // console.log(grades[i]);
+//     }
+//
+//     let sum = 0;
+//
+//     for (let i = 0; i < grades.length; i++) {
+//         if (grades[i].includes('Cum Laude')) {
+//             sum = sum + 1;
+//         }
+//     }
+//
+//     console.log('Er zijn ' + sum + ' studenten Cum Laude afgestudeerd. Er moeten dus ' + sum + ' diplomas besteld worden.');
+// }
+//
+// console.log(cumLaude())
 
 /* Opdracht  2: Gemiddeld cijfer */
 
