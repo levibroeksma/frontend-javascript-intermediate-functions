@@ -34,9 +34,8 @@ function typeOfEmail(typeMail) {
         return "Medewerker";
     } else if(typeMail.includes("@novi-education.nl")) {
         return "Student";
-    } else {
-        return "Extern";
     }
+        return "Extern";
 }
 
 console.log(typeOfEmail(mailAddress));
@@ -75,3 +74,42 @@ function checkEmailValidity(mailValidCheck) {
 }
 
 console.log(checkEmailValidity(mailToCheck));
+
+console.log('\n');
+
+console.log('Versie 2: ingekort');
+
+console.log('\n');
+
+const mailToCheck1 = "levi@broeksma.nl";
+
+function checkEmailValidity1(mailValidCheck) {
+    const containAd = mailValidCheck.includes("@");
+    const noComma = mailValidCheck.includes(",");
+    const indexPoint = mailValidCheck.lastIndexOf(".") < mailValidCheck.length - 1;
+
+    if (containAd === true && noComma === false && indexPoint === true) {
+        return "E-mail is correct";
+    } else {
+        return "E-mail is incorrect, probeer opnieuw";
+    }
+}
+
+console.log(checkEmailValidity1(mailToCheck1));
+
+console.log('\n');
+
+console.log('Versie 3: verder ingekort');
+
+console.log('\n');
+
+const mailToCheck2 = 'levi@broeksma.nl';
+
+function checkEmailValidity2(mailValidCheck) {
+    if(mailValidCheck.includes('@') === true && mailValidCheck.includes(',') === false && mailValidCheck.lastIndexOf('.') < mailValidCheck.length - 1 === true) {
+        return 'E-mail is correct.';
+    }
+    return 'E-mail is incorrect, probeer opnieuw.'
+}
+
+console.log(checkEmailValidity2(mailToCheck2));
