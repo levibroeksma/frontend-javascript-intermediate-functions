@@ -6,17 +6,6 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // Dit zijn cijfers van verschillene studenten
 
-// Gemiddele cijfer uitrekenen:
-
-// let sum = 0;
-//
-// for (let i = 0; i < grades.length; i++) {
-//    sum += grades[i];
-// }
-//
-// console.log(sum / grades.length);
-
-
 /* Opdracht  1: Cum Laude */
 
 /* 1a: Script schrijven  */
@@ -27,30 +16,50 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
 
-//ik wil de lijst doorlopen
 
-// elke keer als een cijfer 8 of hoger is wil ik true terug krijgen
+// Hoe lang wil je het hebben
 
-// elke keer als een cijfer lager is dan 8 wil ik false terug krijgen
+// for (let i = 0; i < grades.length; i++) {
+//     if(grades[i] >= 8) {
+//         grades.splice(i, 1, 'Cum Laude');
+//     } else {
+//         grades.splice(i,1, 'failed');
+//     }
+//     console.log(grades)
+// }
 
-for (let i = 0; i < grades.length; i++) {
-    if(grades[i] >= 8) {
-        grades.splice(i, 1, 'Cum Laude');
-    } else {
-        grades.splice(i,1, 'failed');
-    }
-    // console.log(grades[i]);
-}
+// for (let i = 0; i < grades.length; i++) {
+//     if (grades[i].includes('Cum Laude')) {
+//         sum = sum + 1;
+//     }
+// }
+
+// Oplossing 2:
 
 let sum = 0;
 
 for (let i = 0; i < grades.length; i++) {
-    if (grades[i].includes('Cum Laude')) {
+    if(grades[i] >= 8) {
         sum = sum + 1;
     }
+    console.log('Er moeten ' + sum + ' diploma\'s besteld worden.');
+}
+console.log("\n");
+
+// Meest compacte oplossing
+
+function orderDiplomas(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if(arr[i] >= 8) {
+            sum++;
+        }
+    }
+    console.log('Er moeten ' + sum + ' diploma\'s besteld worden.');
 }
 
-// console.log('Er zijn ' + sum + ' studenten Cum Laude afgestudeerd. Er moeten dus ' + sum + ' diplomas besteld worden.');
+orderDiplomas(grades);
+console.log("\n");
 
 // ---- Verwachte uitkomst: 6
 
@@ -98,6 +107,15 @@ for (let i = 0; i < grades.length; i++) {
 // * Hoe zorgt ik ervoor dat ik alle waardes uit de array kan langslopen, ook als de array wel 100 entries zou bevatten?
 // Log het antwoord in de terminal.
 
+let sum1 = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    sum1 += grades[i];
+}
+
+console.log(sum1 / grades.length);
+
+console.log("\n");
 // ---- Verwachte uitkomst: 6.642857142857143
 
 
@@ -111,14 +129,35 @@ for (let i = 0; i < grades.length; i++) {
 // averageGrade([6, 4, 5]) geeft xxxx
 // averageGrade([8, 9, 4, 6, 10]) geeft xxxx
 
+function averageGrade(arr) {
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    console.log(sum / arr.length);
+}
+
+averageGrade(grades);
+
+console.log('\n');
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
 
+function averageGrade1(arr) {
+    let sum = 0;
 
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    console.log((sum / arr.length).toFixed(2));
+}
 
+averageGrade1(grades);
 
+console.log('\n')
 /* Bonusopdracht: hoogste cijfer */
 
 /* 3a: Script schrijven  */
@@ -128,6 +167,11 @@ for (let i = 0; i < grades.length; i++) {
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan opslaan?
 // Log het antwoord in de terminal.
 
+console.log(Math.max(...grades));
+
+// expected output: 3
+
+console.log('\n');
 // ---- Verwachte uitkomst: 9
 
 
@@ -135,6 +179,12 @@ for (let i = 0; i < grades.length; i++) {
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+
+function highestGrade(arr) {
+    console.log(Math.max(...arr));
+}
+
+highestGrade(grades);
 
 // ---- Verwachte uitkomsten:
 // highestGrade(grades) geeft 9
